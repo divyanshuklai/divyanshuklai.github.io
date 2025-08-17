@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #faf9f6;
+    color: #000;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+main {
+    padding: 2rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid;
+}
+
+footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+a {
+    color: #000; /* Black */
+}
+
+header, footer {
+    border-color: #000;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    padding-right: 2rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 1rem;
+}
+
+main {
+    flex: 1;
+}
