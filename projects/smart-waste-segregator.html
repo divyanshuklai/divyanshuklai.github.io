@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Waste Segregator | Divyansh Shukla</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Divyansh Shukla</h1>
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/in/divyansh-shukla-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://x.com/divshkl" target="_blank" rel="noopener noreferrer">X</a></li>
+                <li><a href="https://github.com/divyanshuklai" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+        </header>
+
+        <div class="wrapper">
+            <aside class="sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../projects.html">Projects</a></li>
+                        <li><a href="../research.html">Research</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main>
+                <section id="project-details">
+                    <h2>Smart Waste Segregator</h2>
+                    <img src="smart-waste-segregator/SWSbin2.jpeg" alt="Smart Waste Segregator" style="max-width: 100%;">
+
+                    <h3>What Went Right</h3>
+                    <p>While the project wasn't a complete success, it was a great learning experience. Here are a few things that went as planned:</p>
+                    <ul>
+                        <li>The LIDAR-based detection system was a good choice, it was more efficient than continuous video processing and helped keep the Raspberry Pi from overheating.</li>
+                        <li>The metal MG995 servos were robust enough for the segregation mechanism, although they required a dedicated power supply.</li>
+                        <li>A physical on/off switch was a small but useful addition.</li>
+                        <li>I was able to reduce the latency to under 3 seconds by using a smaller model (EfficientNet), which was a good optimization.</li>
+                    </ul>
+
+                    <h3>What Went Wrong</h3>
+                    <p>This project was a valuable lesson in the difference between theory and practice. Here are some of the key challenges and failures:</p>
+                    <ul>
+                        <li>The model's real-world performance was disappointing. It was heavily biased towards classifying everything as biodegradable due to a skewed dataset.</li>
+                        <li>I spent a significant amount of time troubleshooting hardware issues, like getting the PiCamera to work through the terminal. This took time away from collecting a diverse and representative dataset.</li>
+                        <li>The lack of a proper test set of images from the actual PiCamera meant that I didn't have a good way to evaluate the model's performance in a real-world scenario.</li>
+                        <li>The online datasets I used for training didn't accurately represent the kind of waste the bin would encounter in reality.</li>
+                    </ul>
+
+                    <h3>Schema Diagram</h3>
+                    <img src="smart-waste-segregator/image1.png" alt="Schema Diagram" style="max-width: 100%;">
+
+                    <h3>Circuit Diagram</h3>
+                    <img src="smart-waste-segregator/image2.png" alt="Circuit Diagram" style="max-width: 100%;">
+
+                </section>
+            </main>
+        </div>
+
+        <footer>
+            <ul>
+                <li><a href="../interests.html">Interests</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../resume.html">Resume</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

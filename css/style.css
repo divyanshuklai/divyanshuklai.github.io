@@ -141,3 +141,119 @@ main {
         margin-left: 20px;
     }
 }
+
+.project-card {
+    border: 1px solid #000;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.projects-container {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.project-card-small {
+    position: relative;
+    flex: 0 0 300px;
+    height: 200px;
+    margin-right: 1rem;
+    overflow: hidden;
+    border: 1px solid #000;
+}
+
+.project-card-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.project-card-small h3 {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: #fff;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.project-card-home {
+    position: relative;
+    flex: 0 0 300px;
+    height: 200px;
+    margin-right: 1rem;
+    overflow: hidden;
+    border: 1px solid #000;
+}
+
+.project-card-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card-home .project-card-home-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 1rem;
+}
+
+.project-card-home .project-card-home-title h3 {
+    margin: 0;
+}
+
+.project-list-card {
+    display: flex;
+    border: 1px solid #000;
+    margin-bottom: 2rem;
+}
+
+.project-list-card-content {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.project-list-card-content h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.project-list-card-content p {
+    margin-bottom: 1.5rem;
+}
+
+.project-list-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-list-card-tags span {
+    background-color: #f0f0f0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.project-list-card-date {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.project-list-card-image {
+    flex: 0 0 250px;
+    order: -1;
+}
+
+.project-list-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
