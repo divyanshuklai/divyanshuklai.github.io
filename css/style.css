@@ -212,44 +212,49 @@ main {
     display: flex;
     border: 1px solid #000;
     margin-bottom: 2rem;
+    height: 150px;
 }
 
 .project-list-card-content {
-    padding: 1.5rem;
+    padding: 1rem;
     flex: 1;
 }
 
 .project-list-card-content h3 {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
 .project-list-card-content p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
 }
 
 .project-list-card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
 }
 
 .project-list-card-tags span {
     background-color: #f0f0f0;
-    padding: 0.25rem 0.75rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 15px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .project-list-card-date {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #888;
 }
 
 .project-list-card-image {
     flex: 0 0 250px;
     order: -1;
+    height: 150px;
 }
 
 .project-list-card-image img {
