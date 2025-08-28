@@ -32,28 +32,26 @@
                 <section id="project-details">
                     <h2>Smart Waste Segregator</h2>
                     <p>A smart bin that detects incoming trash and then segregates it into one of four categories: organic, metal, plastic, and glass.</p>
-                    <img src="smart-waste-segregator/SWSbin2.jpeg" alt="Smart Waste Segregator" style="max-width: 100%;">
+                    <img src="smart-waste-segregator/SWSbin2.jpeg" alt="Smart Waste Segregator" style="max-width: 25%;">
 
-                    <h3>What Went Right</h3>
-                    <p>While the project wasn't a complete success, it was a great learning experience. Here are a few things that went as planned:</p>
+                    <h3>Successes</h3>
                     <ul>
-                        <li>The LIDAR-based detection system was a good choice, it was more efficient than continuous video processing and helped keep the Raspberry Pi from overheating.</li>
-                        <li>The metal MG995 servos were robust enough for the segregation mechanism, although they required a dedicated power supply.</li>
-                        <li>A physical on/off switch was a small but useful addition.</li>
-                        <li>I was able to reduce the latency to under 3 seconds by using a smaller model (EfficientNet), which was a good optimization.</li>
+                        <li>LIDAR-based detection system proved more efficient than continuous video processing, preventing Raspberry Pi overheating.</li>
+                        <li>Robust MG995 metal servos handled the segregation mechanism effectively.</li>
+                        <li>The dual-flap design was compact and efficient.</li>
+                        <li>Reduced latency to under 3 seconds by using a smaller model (MobileNetV2).</li>
                     </ul>
 
-                    <h3>What Went Wrong</h3>
-                    <p>This project was a valuable lesson in the difference between theory and practice. Here are some of the key challenges and failures:</p>
+                    <h3>Failures</h3>
                     <ul>
-                        <li>The model's real-world performance was disappointing. It was heavily biased towards classifying everything as biodegradable due to a skewed dataset.</li>
-                        <li>I spent a significant amount of time troubleshooting hardware issues, like getting the PiCamera to work through the terminal. This took time away from collecting a diverse and representative dataset.</li>
-                        <li>The lack of a proper test set of images from the actual PiCamera meant that I didn't have a good way to evaluate the model's performance in a real-world scenario.</li>
-                        <li>The online datasets I used for training didn't accurately represent the kind of waste the bin would encounter in reality.</li>
+                        <li>The model's real-world performance was poor due to a biased dataset.</li>
+                        <li>Significant time was lost troubleshooting hardware issues (e.g., PiCamera).</li>
+                        <li>Lack of a proper test set hindered real-world performance evaluation.</li>
+                        <li>Online training datasets did not reflect real-world waste.</li>
                     </ul>
 
-                    <h3>Schema Diagram</h3>
-                    <img src="smart-waste-segregator/image1.png" alt="Schema Diagram" style="max-width: 100%;">
+                    <h3>Schematic Diagram</h3>
+                    <img src="smart-waste-segregator/image1.png" alt="Schematic Diagram" style="max-width: 50%;">
 
                     <h3>Circuit Diagram</h3>
                     <img src="smart-waste-segregator/image2.png" alt="Circuit Diagram" style="max-width: 100%;">
