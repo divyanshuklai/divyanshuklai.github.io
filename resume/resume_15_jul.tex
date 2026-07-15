@@ -58,14 +58,14 @@
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-8pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-5pt}
 }
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
@@ -73,9 +73,9 @@
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-5pt}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=-2pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-8pt}}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-6pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=-1.2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -93,19 +93,19 @@
 
 %-----------SUMMARY-----------
 \section{Summary}
-\small{Aspiring embodied AI researcher focused on generative models and modern ML systems, with projects spanning flow-matching/diffusion, decoder-only transformers, vision-language model (VLM) experimentation, and robotics/mechatronics prototyping.}
+\small{Machine Learning Engineer (Systems) with a strong foothold in data pipeline management, model training/fine-tuning, and ML on the edge, with projects spanning flow-matching/diffusion, decoder-only transformers, vision-language model (VLM) experimentation, and robot learning.}
 
 %-----------EDUCATION-----------
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Vellore Institute of Technology}{Vellore, India}
+      {Vellore Institute of Technology}{}
       {Bachelor of Technology in Computer Science and Engineering (Specialization: AI \& ML)}{CGPA: 9.03}
     \resumeSubheading
-      {DAV Public School}{Sahibabad, India}
+      {DAV Public School Sahibabad}{}
       {XII Standard}{91\%}
     \resumeSubheading
-      {DAV Public School}{Sahibabad, India}
+      {DAV Public School Sahibabad}{}
       {X Standard}{95.6\%}
   \resumeSubHeadingListEnd
 
@@ -149,17 +149,16 @@
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{Custom2DRoPEDiT (DiT w/ 2D RoPE)} $|$ \href{https://github.com/divyanshuklai/Custom2DRoPEDiT}{\underline{github.com/divyanshuklai/Custom2DRoPEDiT}}}{}
+          {\textbf{Fashion Search} $|$ \href{https://github.com/divyanshuklai/fashion_search}{\underline{github.com/divyanshuklai/fashion\_search}}}{}
           \resumeItemListStart
-            \resumeItem{Implemented a custom Diffusion Transformer (DiT) variant with 2D (height, width) rotary positional embeddings (RoPE) for image tokens.}
-            \resumeItem{Enhanced sample efficiency vs. a 2D sinusoidal positional-embedding baseline by reducing steps-to-quality (fewer training steps for comparable samples).}
-            \resumeItem{Increased training throughput via faster convergence, reducing overall training time while improving final sample quality.}
-            \resumeItem{Lowered FID and improved robustness on out-of-distribution aspect ratios and resolutions (non-square, higher-res) through stress-tested generation.}
+            \resumeItem{Built a FastAPI conversational chat app for natural-language fashion product discovery across 10 Indian e-commerce stores (Myntra, Ajio, TataCliq, and others).}
+            \resumeItem{Implemented a naive search pipeline (Tavily web search $\rightarrow$ Gemini 2.5 Flash parsing $\rightarrow$ BeautifulSoup scraping) to turn search snippets into structured product data.}
+            \resumeItem{Engineered a priority-based image-extraction strategy (JSON-LD, meta tags, keyword-matched img tags, OG fallback) to reliably surface product images and prices in a chat UI; extending to an agentic search variant with planning, memory, and tool use for comparison against the naive baseline.}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 
-%-----------CERTIFICATIONS-----------
-\section{Certifications}
+%-----------RELEVANT KNOWLEDGE-----------
+\section{Relevant Knowledge}
   \resumeSubHeadingListStart
     \resumeItem{Applied Accelerated Artificial Intelligence (NPTEL25CS98)}
     \resumeItem{Deep Learning with Computer Vision (NPTEL25CS93)}
