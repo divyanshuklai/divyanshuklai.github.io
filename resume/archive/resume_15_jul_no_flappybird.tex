@@ -1,0 +1,160 @@
+%-------------------------
+% Resume in Latex
+% Based on Jake's Resume Template (https://github.com/jakegut/resume / sourabhbajaj)
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=2pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Divyansh Shukla} \\ \vspace{1pt}
+    \small +91 7827910144 $|$
+    \href{https://github.com/divyanshuklai}{\underline{github.com/divyanshuklai}} $|$
+    \href{https://www.linkedin.com/in/divyansh-shukla-ai/}{\underline{linkedin.com/in/divyansh-shukla-ai}} $|$
+    \href{https://x.com/divshkl}{\underline{x.com/divshkl}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{Machine Learning Engineer (Systems) with a strong foothold in data pipeline management, model training/fine-tuning, and ML on the edge, with projects spanning flow-matching/diffusion, decoder-only transformers, vision-language model (VLM) experimentation, and robot learning.}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vellore Institute of Technology}{}
+      {Bachelor of Technology in Computer Science and Engineering (Specialization: AI \& ML)}{CGPA: 9.03}
+    \resumeSubheading
+      {DAV Public School Sahibabad}{}
+      {XII Standard}{91\%}
+    \resumeSubheading
+      {DAV Public School Sahibabad}{}
+      {X Standard}{95.6\%}
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, C++, CUDA, HTML} \\
+     \textbf{Libraries}{: PyTorch (w/ Distributed), PyTorch Lightning, Hugging Face Transformers, TRL, vLLM, pandas, OpenCV} \\
+     \textbf{RL/Sim}{: Gymnasium, MuJoCo} \\
+     \textbf{ML/DL}{: diffusion models, flow matching, transformer architectures, reinforcement learning, vision-language model experimentation} \\
+     \textbf{Tools/Workflow}{: Hydra, Jupyter notebooks, Modal (remote compute)}
+    }}
+ \end{itemize}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{VLM Project} $|$ \href{https://github.com/divyanshuklai/vlm-project}{\underline{github.com/divyanshuklai/vlm-project}}}{}
+          \resumeItemListStart
+            \resumeItem{Built an end-to-end VLM pipeline (data prep $\rightarrow$ training $\rightarrow$ eval) that simplified experiment iteration and reduced time-to-result.}
+            \resumeItem{Implemented alignment + preference optimization methods including RLHF (reward modeling + optimization), DPO, and RLVR (GRPO-style RL fine-tuning).}
+            \resumeItem{Enhanced evaluation rigor with benchmark-driven comparisons (competitive with similarly sized models) and standardized, reproducible runs on Modal.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Zero-shot ICE RMA (Teacher--Student RL)} $|$ \href{https://github.com/divyanshuklai/zero-shot-ice-rma}{\underline{github.com/divyanshuklai/zero-shot-ice-rma}}}{}
+          \resumeItemListStart
+            \resumeItem{Replicated the original RMA (teacher--student) approach and extended it into a reproducible training + evaluation workflow.}
+            \resumeItem{Increased robustness and generalization via built-in domain randomization and evaluation across a multitude of environments for training and transfer testing.}
+            \resumeItem{Enabled easier sim-to-sim transfer and laid groundwork for sim-to-real deployment tooling (repeatable configs, eval harness, and deployment-oriented utilities).}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Fashion Search} $|$ \href{https://github.com/divyanshuklai/fashion_search}{\underline{github.com/divyanshuklai/fashion\_search}}}{}
+          \resumeItemListStart
+            \resumeItem{Built a FastAPI conversational chat app for natural-language fashion product discovery across 10 Indian e-commerce stores (Myntra, Ajio, TataCliq, and others).}
+            \resumeItem{Implemented a naive search pipeline (Tavily web search $\rightarrow$ Gemini 2.5 Flash parsing $\rightarrow$ BeautifulSoup scraping) to turn search snippets into structured product data.}
+            \resumeItem{Engineered a priority-based image-extraction strategy (JSON-LD, meta tags, keyword-matched img tags, OG fallback) to reliably surface product images and prices in a chat UI; extending to an agentic search variant with planning, memory, and tool use for comparison against the naive baseline.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------RELEVANT KNOWLEDGE-----------
+\section{Relevant Knowledge}
+  \resumeSubHeadingListStart
+    \resumeItem{Applied Accelerated Artificial Intelligence (NPTEL25CS98)}
+    \resumeItem{Deep Learning with Computer Vision (NPTEL25CS93)}
+    \resumeItem{Deep Learning Specialization (Coursera)}
+  \resumeSubHeadingListEnd
+
+\end{document}
