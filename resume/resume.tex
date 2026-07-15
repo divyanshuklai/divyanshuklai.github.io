@@ -1,0 +1,169 @@
+%-------------------------
+% Resume in Latex
+% Based on Jake's Resume Template (https://github.com/jakegut/resume / sourabhbajaj)
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=-2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-8pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Divyansh Shukla} \\ \vspace{1pt}
+    \small +91 7827910144 $|$
+    \href{https://github.com/divyanshuklai}{\underline{github.com/divyanshuklai}} $|$
+    \href{https://www.linkedin.com/in/divyansh-shukla-ai/}{\underline{linkedin.com/in/divyansh-shukla-ai}} $|$
+    \href{https://x.com/divshkl}{\underline{x.com/divshkl}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{Aspiring embodied AI researcher focused on generative models and modern ML systems, with projects spanning flow-matching/diffusion, decoder-only transformers, vision-language model (VLM) experimentation, and robotics/mechatronics prototyping.}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vellore Institute of Technology}{Vellore, India}
+      {Bachelor of Technology in Computer Science and Engineering (Specialization: AI \& ML)}{CGPA: 9.03}
+    \resumeSubheading
+      {DAV Public School}{Sahibabad, India}
+      {XII Standard}{91\%}
+    \resumeSubheading
+      {DAV Public School}{Sahibabad, India}
+      {X Standard}{95.6\%}
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, C++, CUDA, HTML} \\
+     \textbf{Libraries}{: PyTorch (w/ Distributed), PyTorch Lightning, Hugging Face Transformers, TRL, vLLM, pandas, OpenCV} \\
+     \textbf{RL/Sim}{: Gymnasium, MuJoCo} \\
+     \textbf{ML/DL}{: diffusion models, flow matching, transformer architectures, reinforcement learning, vision-language model experimentation} \\
+     \textbf{Tools/Workflow}{: Hydra, Jupyter notebooks, Modal (remote compute)}
+    }}
+ \end{itemize}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{VLM Project} $|$ \href{https://github.com/divyanshuklai/vlm-project}{\underline{github.com/divyanshuklai/vlm-project}}}{}
+          \resumeItemListStart
+            \resumeItem{Built an end-to-end VLM pipeline (data prep $\rightarrow$ training $\rightarrow$ eval) that simplified experiment iteration and reduced time-to-result.}
+            \resumeItem{Implemented alignment + preference optimization methods including RLHF (reward modeling + optimization), DPO, and RLVR (GRPO-style RL fine-tuning).}
+            \resumeItem{Enhanced evaluation rigor with benchmark-driven comparisons (competitive with similarly sized models) and standardized, reproducible runs on Modal.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{FlappyBirDiT} $|$ \href{https://github.com/divyanshuklai/FlappyBirDiT}{\underline{github.com/divyanshuklai/FlappyBirDiT}}}{}
+          \resumeItemListStart
+            \resumeItem{Built a video diffusion pipeline for near real-time inference, conditioned on player inputs to generate responsive gameplay frames.}
+            \resumeItem{Enhanced model selection via ablations over model size, samplers, priors, training methods (SDE/ODE/diffusion-style), and guidance-injection strategies.}
+            \resumeItem{Achieved playable frame quality and frame rate by benchmarking playability targets (throughput + visual fidelity) and iterating toward stable, interactive generation.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Zero-shot ICE RMA (Teacher--Student RL)} $|$ \href{https://github.com/divyanshuklai/zero-shot-ice-rma}{\underline{github.com/divyanshuklai/zero-shot-ice-rma}}}{}
+          \resumeItemListStart
+            \resumeItem{Replicated the original RMA (teacher--student) approach and extended it into a reproducible training + evaluation workflow.}
+            \resumeItem{Increased robustness and generalization via built-in domain randomization and evaluation across a multitude of environments for training and transfer testing.}
+            \resumeItem{Enabled easier sim-to-sim transfer and laid groundwork for sim-to-real deployment tooling (repeatable configs, eval harness, and deployment-oriented utilities).}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Custom2DRoPEDiT (DiT w/ 2D RoPE)} $|$ \href{https://github.com/divyanshuklai/Custom2DRoPEDiT}{\underline{github.com/divyanshuklai/Custom2DRoPEDiT}}}{}
+          \resumeItemListStart
+            \resumeItem{Implemented a custom Diffusion Transformer (DiT) variant with 2D (height, width) rotary positional embeddings (RoPE) for image tokens.}
+            \resumeItem{Enhanced sample efficiency vs. a 2D sinusoidal positional-embedding baseline by reducing steps-to-quality (fewer training steps for comparable samples).}
+            \resumeItem{Increased training throughput via faster convergence, reducing overall training time while improving final sample quality.}
+            \resumeItem{Lowered FID and improved robustness on out-of-distribution aspect ratios and resolutions (non-square, higher-res) through stress-tested generation.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+  \resumeSubHeadingListStart
+    \resumeItem{Applied Accelerated Artificial Intelligence (NPTEL25CS98)}
+    \resumeItem{Deep Learning with Computer Vision (NPTEL25CS93)}
+    \resumeItem{Deep Learning Specialization (Coursera)}
+  \resumeSubHeadingListEnd
+
+\end{document}
