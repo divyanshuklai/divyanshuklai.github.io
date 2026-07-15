@@ -75,7 +75,7 @@
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-6pt}}
 \newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=-1.2pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6.5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -149,12 +149,11 @@
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{Custom2DRoPEDiT (DiT w/ 2D RoPE)} $|$ \href{https://github.com/divyanshuklai/Custom2DRoPEDiT}{\underline{github.com/divyanshuklai/Custom2DRoPEDiT}}}{}
+          {\textbf{Fashion Search} $|$ \href{https://github.com/divyanshuklai/fashion_search}{\underline{github.com/divyanshuklai/fashion\_search}}}{}
           \resumeItemListStart
-            \resumeItem{Implemented a custom Diffusion Transformer (DiT) variant with 2D (height, width) rotary positional embeddings (RoPE) for image tokens.}
-            \resumeItem{Enhanced sample efficiency vs. a 2D sinusoidal positional-embedding baseline by reducing steps-to-quality (fewer training steps for comparable samples).}
-            \resumeItem{Increased training throughput via faster convergence, reducing overall training time while improving final sample quality.}
-            \resumeItem{Lowered FID and improved robustness on out-of-distribution aspect ratios and resolutions (non-square, higher-res) through stress-tested generation.}
+            \resumeItem{Built a FastAPI conversational chat app for natural-language fashion product discovery across 10 Indian e-commerce stores (Myntra, Ajio, TataCliq, and others).}
+            \resumeItem{Implemented a naive search pipeline (Tavily web search $\rightarrow$ Gemini 2.5 Flash parsing $\rightarrow$ BeautifulSoup scraping) to turn search snippets into structured product data.}
+            \resumeItem{Engineered a priority-based image-extraction strategy (JSON-LD, meta tags, keyword-matched img tags, OG fallback) to reliably surface product images and prices in a chat UI; extending to an agentic search variant with planning, memory, and tool use for comparison against the naive baseline.}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 
