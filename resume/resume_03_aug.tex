@@ -1,0 +1,184 @@
+%-------------------------
+% Resume in Latex
+% Based on Jake's Resume Template (https://github.com/jakegut/resume / sourabhbajaj)
+%
+% ATS notes:
+%  - Single column, standard section headings (Experience / Education &
+%    Certifications / Technical Skills / Projects), no text boxes, no images,
+%    no multi-column layout. Selectable text with \pdfgentounicode=1 so
+%    parsers read it cleanly.
+%  - Link text uses ulem's \uline, not \underline: \underline typesets in math
+%    mode, which ignores \small and extracts worse. Do not switch it back.
+%  - Every claim below is backed by code that exists in a repo. Do not re-add
+%    a bullet you cannot open a file for.
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.35in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generated pdf is machine readable / ATS parsable
+\pdfgentounicode=1
+
+\newcommand{\graddate}{Expected 2027}
+
+% >>> TODO: confirm the internship job title and start month before sending.
+% Set from what your offer letter / LinkedIn says.
+\newcommand{\introle}{Machine Learning Engineer Intern}
+\newcommand{\intdates}{2026 -- Present}
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-8pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \small#2 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-6pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=-1.2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Divyansh Shukla} \\ \vspace{2pt}
+    \small
+    \href{mailto:divyanshaiengineer@gmail.com}{\uline{divyanshaiengineer@gmail.com}} $|$
+    +91 7827910144 $|$
+    India \\ \vspace{1pt}
+    \href{https://github.com/divyanshuklai}{\uline{github.com/divyanshuklai}} $|$
+    \href{https://www.linkedin.com/in/divyansh-shukla-ai/}{\uline{linkedin.com/in/divyansh-shukla-ai}} $|$
+    \href{https://divyanshuklai.github.io}{\uline{divyanshuklai.github.io}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{Computer Science undergraduate (AI \& ML) and current machine learning intern building thermal object detection for driver-assistance systems. Implements deep learning from first principles in PyTorch --- diffusion transformers, 2D rotary attention, rectified flow --- plus reinforcement learning and LLM agent pipelines. Seeking machine learning and research engineering roles.}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Power Pulse India}{\intdates}
+      {\introle}{India}
+      \resumeItemListStart
+        \resumeItem{Built an end-to-end thermal object detection pipeline for advanced driver-assistance systems, training YOLOv8n on the FLIR ADAS v2 dataset over 6 road-safety classes (person, bicycle, car, motorcycle, bus, truck).}
+        \resumeItem{Orchestrated resumable multi-hour GPU training runs on Modal with persistent volumes, secret management, and Weights \& Biases logging, so interrupted runs restart from the last checkpoint rather than from scratch.}
+        \resumeItem{Wrote a COCO-to-YOLO converter that symlinks rather than copies images, fuzzy-matching FLIR category aliases onto contiguous class IDs.}
+        \resumeItem{Tuned the recipe for single-channel thermal input by disabling hue/saturation augmentation and raising classification loss weight against background confusion; evaluation reports per-class AP50 and AP50-95 against a fixed baseline (mAP50 0.59, mAP50-95 0.36).}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education \& Certifications}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vellore Institute of Technology}{\graddate}
+      {B.Tech, Computer Science and Engineering --- Artificial Intelligence \& Machine Learning}{CGPA: 9.03 / 10}
+    \vspace{8pt}
+    \resumeSubItem{\textbf{Certifications}: Applied Accelerated AI (NPTEL); Deep Learning with Computer Vision (NPTEL); Deep Learning Specialization (Coursera)}
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, C++, CUDA} \\
+     \textbf{ML Frameworks}{: PyTorch, PyTorch Lightning, Hugging Face Transformers, TRL, Ultralytics (YOLO), Stable-Baselines3, vLLM} \\
+     \textbf{Deep Learning}{: diffusion models, flow matching, transformers, attention mechanisms (RoPE, AdaLN-Zero), classifier-free guidance, object detection, reinforcement learning (PPO), vision-language models} \\
+     \textbf{LLMs \& Agents}{: prompt engineering, structured output extraction, function calling, agentic workflows (planning, memory, tool use), retrieval-augmented search, LLM evaluation, Gemini API} \\
+     \textbf{Simulation \& Robotics}{: MuJoCo, Gymnasium, OpenCV, Raspberry Pi, embedded/edge inference} \\
+     \textbf{Backend \& Infrastructure}{: FastAPI, Django, Flask, Modal, Weights \& Biases, Hydra, Git, Linux, NumPy, pandas}
+    }}
+ \end{itemize}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{RoPE-DiT: Diffusion Transformer with 2D RoPE}}{\href{https://github.com/divyanshuklai/Custom2DRoPEDiT}{\uline{github.com/divyanshuklai/Custom2DRoPEDiT}}}
+          \resumeItemListStart
+            \resumeItem{Implemented a $\sim$5M-parameter Diffusion Transformer from scratch: patchifier, timestep and class-label embedders, AdaLN-Zero conditioning, and a custom multi-head attention module.}
+            \resumeItem{Designed a true 2D rotary positional embedding splitting the attention head dimension into row and column halves, rotating queries/keys by each patch's (height, width) coordinates to encode relative 2D distance rather than flattened 1D or absolute positions.}
+            \resumeItem{Trained on CIFAR-10 with a rectified flow objective (MSE against the velocity field $v = x_1 - x_0$), sampling via a hand-written Euler ODE solver with classifier-free guidance.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Zero-Shot ICE RMA: Quadruped Locomotion RL}}{\href{https://github.com/divyanshuklai/zero-shot-ice-rma}{\uline{github.com/divyanshuklai/zero-shot-ice-rma}}}
+          \resumeItemListStart
+            \resumeItem{Built a MuJoCo environment for the Unitree Go1 quadruped (30-dim proprioceptive observations, 12-dim joint-position actions, fractal terrain for domain randomization) and implemented the Rapid Motor Adaptation bioenergetics reward with curriculum-scheduled penalty weights.}
+            \resumeItem{Diagnosed a failed 42M-step PPO baseline, tracing exploding value loss and absent gait discovery to unnormalized observations, penalty dominance, and missing previous-action context.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Fashion Search: Conversational Product Discovery}}{\href{https://github.com/divyanshuklai/fashion_search}{\uline{github.com/divyanshuklai/fashion\_search}}}
+          \resumeItemListStart
+            \resumeItem{Built a FastAPI chat app turning natural-language queries into product cards across 10 Indian e-commerce stores, chaining Tavily search, Gemini 2.5 Flash structured extraction, and BeautifulSoup scraping.}
+            \resumeItem{Engineered a priority-based image and price extractor (JSON-LD $\rightarrow$ Open Graph tags $\rightarrow$ keyword-matched images), benchmarking it as the baseline for an in-progress agentic variant with planning, memory, and tool use.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+\end{document}
