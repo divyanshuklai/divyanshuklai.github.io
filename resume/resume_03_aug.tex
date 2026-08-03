@@ -112,9 +112,13 @@
     \href{https://divyanshuklai.github.io}{\uline{divyanshuklai.github.io}}
 \end{center}
 
-%-----------SUMMARY-----------
-\section{Summary}
-\small{Computer Science undergraduate (AI \& ML) and current machine learning intern building thermal object detection for driver-assistance systems. Implements deep learning from first principles in PyTorch --- diffusion transformers, 2D rotary attention, rectified flow --- plus reinforcement learning and LLM agent pipelines. Seeking machine learning and research engineering roles.}
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vellore Institute of Technology}{\graddate}
+      {B.Tech, Computer Science and Engineering (Artificial Intelligence \& Machine Learning)}{CGPA: 9.03 / 10}
+  \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------
 \section{Experience}
@@ -123,22 +127,19 @@
       {Power Pulse India}{\intdates}
       {\introle}{India}
       \resumeItemListStart
-        \resumeItem{Built an end-to-end thermal object detection pipeline for advanced driver-assistance systems, training YOLOv8n on the FLIR ADAS v2 dataset over 6 road-safety classes (person, bicycle, car, motorcycle, bus, truck).}
-        \resumeItem{Orchestrated resumable multi-hour GPU training runs on Modal with persistent volumes, secret management, and Weights \& Biases logging, so interrupted runs restart from the last checkpoint rather than from scratch.}
-        \resumeItem{Wrote a COCO-to-YOLO converter that symlinks rather than copies images, fuzzy-matching FLIR category aliases onto contiguous class IDs.}
-        \resumeItem{Tuned the recipe for single-channel thermal input by disabling hue/saturation augmentation and raising classification loss weight against background confusion; evaluation reports per-class AP50 and AP50-95 against a fixed baseline (mAP50 0.59, mAP50-95 0.36).}
+        \resumeItem{Trained YOLOv8n on the FLIR ADAS v2 thermal dataset to detect 6 road-safety classes: person, bicycle, car, motorcycle, bus, and truck.}
+        \resumeItem{Ran multi-hour GPU training jobs on Modal with persistent volumes, stored secrets, and Weights \& Biases logging, and added checkpoint resume so an interrupted run picks up where it stopped.}
+        \resumeItem{Tuned training for single-channel thermal input: turned off hue and saturation augmentation, raised the classification loss weight to cut background confusion. Evaluation reports per-class AP50 and AP50-95 against a baseline of mAP50 0.59, mAP50-95 0.36.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
-%-----------EDUCATION-----------
-\section{Education \& Certifications}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Vellore Institute of Technology}{\graddate}
-      {B.Tech, Computer Science and Engineering --- Artificial Intelligence \& Machine Learning}{CGPA: 9.03 / 10}
-    \vspace{8pt}
-    \resumeSubItem{\textbf{Certifications}: Applied Accelerated AI (NPTEL); Deep Learning with Computer Vision (NPTEL); Deep Learning Specialization (Coursera)}
-  \resumeSubHeadingListEnd
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{NPTEL}{: Applied Accelerated AI, Deep Learning with Computer Vision} \hspace{3pt}$|$\hspace{3pt} \textbf{Coursera}{: Deep Learning Specialization}
+    }}
+ \end{itemize}
 
 %-----------SKILLS-----------
 \section{Technical Skills}
@@ -160,25 +161,31 @@
       \resumeProjectHeading
           {\textbf{RoPE-DiT: Diffusion Transformer with 2D RoPE}}{\href{https://github.com/divyanshuklai/Custom2DRoPEDiT}{\uline{github.com/divyanshuklai/Custom2DRoPEDiT}}}
           \resumeItemListStart
-            \resumeItem{Implemented a $\sim$5M-parameter Diffusion Transformer from scratch: patchifier, timestep and class-label embedders, AdaLN-Zero conditioning, and a custom multi-head attention module.}
-            \resumeItem{Designed a true 2D rotary positional embedding splitting the attention head dimension into row and column halves, rotating queries/keys by each patch's (height, width) coordinates to encode relative 2D distance rather than flattened 1D or absolute positions.}
-            \resumeItem{Trained on CIFAR-10 with a rectified flow objective (MSE against the velocity field $v = x_1 - x_0$), sampling via a hand-written Euler ODE solver with classifier-free guidance.}
+            \resumeItem{Wrote a $\sim$5M-parameter Diffusion Transformer from scratch in PyTorch: patchifier, timestep and class-label embedders, AdaLN-Zero conditioning, and a custom multi-head attention module.}
+            \resumeItem{Built a 2D rotary positional embedding that splits the attention head dimension into row and column halves and rotates queries and keys by each patch's height and width coordinates, so attention sees relative 2D distance instead of a flattened 1D index.}
+            \resumeItem{Trained on CIFAR-10 with a rectified flow objective (MSE against the velocity field $v = x_1 - x_0$) and sampled with a hand-written Euler ODE solver and classifier-free guidance.}
           \resumeItemListEnd
 
       \resumeProjectHeading
           {\textbf{Zero-Shot ICE RMA: Quadruped Locomotion RL}}{\href{https://github.com/divyanshuklai/zero-shot-ice-rma}{\uline{github.com/divyanshuklai/zero-shot-ice-rma}}}
           \resumeItemListStart
-            \resumeItem{Built a MuJoCo environment for the Unitree Go1 quadruped (30-dim proprioceptive observations, 12-dim joint-position actions, fractal terrain for domain randomization) and implemented the Rapid Motor Adaptation bioenergetics reward with curriculum-scheduled penalty weights.}
-            \resumeItem{Diagnosed a failed 42M-step PPO baseline, tracing exploding value loss and absent gait discovery to unnormalized observations, penalty dominance, and missing previous-action context.}
+            \resumeItem{Built a MuJoCo environment for the Unitree Go1 quadruped with 30-dim proprioceptive observations, 12-dim joint-position actions, fractal terrain for domain randomization, and the Rapid Motor Adaptation bioenergetics reward with curriculum-scheduled penalty weights.}
+            \resumeItem{Debugged a PPO baseline that ran 42M steps without learning a gait, tracing the exploding value loss to unnormalized observations, penalty dominance, and missing previous-action context.}
           \resumeItemListEnd
 
       \resumeProjectHeading
           {\textbf{Fashion Search: Conversational Product Discovery}}{\href{https://github.com/divyanshuklai/fashion_search}{\uline{github.com/divyanshuklai/fashion\_search}}}
           \resumeItemListStart
-            \resumeItem{Built a FastAPI chat app turning natural-language queries into product cards across 10 Indian e-commerce stores, chaining Tavily search, Gemini 2.5 Flash structured extraction, and BeautifulSoup scraping.}
-            \resumeItem{Engineered a priority-based image and price extractor (JSON-LD $\rightarrow$ Open Graph tags $\rightarrow$ keyword-matched images), benchmarking it as the baseline for an in-progress agentic variant with planning, memory, and tool use.}
+            \resumeItem{Built a FastAPI chat app that answers natural-language product queries across 10 Indian e-commerce stores, using Tavily for search, Gemini 2.5 Flash for structured extraction, and BeautifulSoup for scraping.}
+            \resumeItem{Wrote a priority-based image and price extractor that tries JSON-LD product schema, then Open Graph tags, then keyword-matched image tags. It is the baseline for an agentic version with planning, memory, and tool use.}
           \resumeItemListEnd
 
     \resumeSubHeadingListEnd
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+  \resumeSubHeadingListStart
+    \resumeItem{Won the internal (intra-campus) round of the Smart India Hackathon at Vellore Institute of Technology, 2024.}
+  \resumeSubHeadingListEnd
 
 \end{document}
