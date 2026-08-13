@@ -36,15 +36,16 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
-% Text block is 7.8in x 10.45in on letter: 0.35in side margins, 0.35in top,
-% 0.2in bottom. Tightened from 0.5in/0.15in to fit the skills and project
-% detail without cutting content. Do not push further -- 0.2in bottom is
-% already inside some printers' unprintable region.
-\addtolength{\oddsidemargin}{-0.65in}
-\addtolength{\evensidemargin}{-0.65in}
-\addtolength{\textwidth}{1.3in}
-\addtolength{\topmargin}{-0.65in}
-\addtolength{\textheight}{1.45in}
+% Text block is 7.9in x 10.55in on letter: 0.30in side margins, 0.30in top,
+% 0.15in bottom. This is the floor -- 0.15in bottom is inside the
+% unprintable region of many printers, so the PDF is screen/ATS-first.
+% Reclaim space here rather than from itemsep or heading gaps, both of
+% which cause visible collisions (see the notes on those commands).
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.7in}
+\addtolength{\textwidth}{1.4in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.55in}
 
 \urlstyle{same}
 
@@ -54,23 +55,25 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-7pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+  \vspace{-8pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-8pt}]
 
 % Ensure that generated pdf is machine readable / ATS parsable
 \pdfgentounicode=1
 
-\newcommand{\graddate}{Expected 2027}
+\newcommand{\graddate}{2023 -- 2027}
 
 \newcommand{\introle}{Machine Learning Intern}
 \newcommand{\intdates}{2026 -- Present}
 
 %-------------------------
 % Custom commands
+% No negative \vspace here: it used to shrink the gap *between* bullets while
+% the leading *inside* a wrapped bullet stayed at full \baselineskip, so a
+% bullet's last line sat closer to the next bullet than to its own first line.
+% Inter-item space must stay larger than intra-item leading -- see itemsep below.
 \newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+  \item\small{#1}
 }
 
 \newcommand{\resumeSubheading}[4]{
@@ -93,8 +96,13 @@
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-8pt}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=-2.2pt]}
+% Space is reclaimed at the boundaries next to bold headings, never from
+% itemsep -- a heading separates blocks visually on its own, so tightening
+% there costs nothing, while tightening itemsep reintroduces the bug above.
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-11pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=2pt, parsep=0pt, topsep=0pt]}
+% -6pt, not lower: a \resumeProjectHeading follows this in the Projects
+% section, and anything near -11pt drives the heading into the last bullet.
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
 
 %-------------------------------------------
@@ -105,10 +113,12 @@
 %----------HEADING----------
 \begin{center}
     \textbf{\Huge \scshape Divyansh Shukla} \\ \vspace{2pt}
-    \small
+    % \scriptsize, not \small: the single-line contact row measures 635pt at
+    % \small against a 571pt text block -- it cannot fit at any margin. See
+    % the measurement note in the commit message.
+    \scriptsize
     \href{mailto:divyanshmohanshukla@hotmail.com}{\uline{divyanshmohanshukla@hotmail.com}} $|$
     +91 7827910144 $|$
-    India \\ \vspace{1pt}
     \href{https://github.com/divyanshuklai}{\uline{github.com/divyanshuklai}} $|$
     \href{https://www.linkedin.com/in/divyansh-shukla-ai/}{\uline{linkedin.com/in/divyansh-shukla-ai}} $|$
     \href{https://divyanshuklai.github.io}{\uline{divyanshuklai.github.io}}
@@ -129,9 +139,9 @@
       {Power Pulse India}{\intdates}
       {\introle}{India}
       \resumeItemListStart
-        \resumeItem{Trained a deployment-aware YOLOv8n thermal detector on FLIR ADAS v2 (6 road-safety classes) to mAP50-95 0.420 and recall 0.604 from a 0.360 / 0.540 baseline, in 100 epochs against 150 after validation curves went flat past epoch 90; accepted 3 points of precision for 26\% fewer missed pedestrians, the correct trade for driver assistance.}
-        \resumeItem{Root-caused the accuracy ceiling to annotations rather than model capacity: crop audits showed labelled ``trucks'' were delivery vans also annotated \textit{car} and \textit{bus} (37\% of true trucks drew no prediction, 24\% car, 15\% bus), compounded by unlearnable 2--6 px boxes and detail lost at 640px.}
-        \resumeItem{Attributed the gain to small objects (82\% of pedestrian labels under 32$\times$32 px; recall 0.689 $\rightarrow$ 0.776) and costed it at 2.25$\times$ compute per frame (3.4 $\rightarrow$ 7.7 GMACs); tested a cheaper P2 detection head at native resolution, which recovered less of the gain and confirmed input resolution as the effective lever.}
+        \resumeItem{Cut missed pedestrians 26\% and raised mAP50-95 from 0.360 to 0.420 for a driver-assistance thermal detector, training a deployment-aware YOLOv8n on FLIR ADAS v2 across 6 road-safety classes in 100 epochs against 150, and trading 3 points of precision for the recall that safety case requires.}
+        \resumeItem{Identified annotation inconsistency and input resolution as the primary accuracy bottlenecks through per-class crop audits and COCO size-bucket analysis: 82\% of pedestrian labels fall under 32x32 px, and labelled trucks were delivery vans also annotated car and bus, with 37\% of true trucks drawing no prediction at all.}
+        \resumeItem{Ran a four-experiment resolution and architecture sweep to cut deployment cost, eliminating a P2 detection head that scored below plain 640px at 1.51x the compute and 4x the detection candidates, and identifying 800px as capturing 85\% of the small-object recall gain at 1.56x compute against 960px's 2.25x.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
@@ -149,13 +159,13 @@
     \small{\item{
      \textbf{Languages}{: Python, SQL, C++, CUDA} \\
      \textbf{ML Frameworks}{: PyTorch, PyTorch Lightning, Hugging Face Transformers, TRL, Unsloth, Ultralytics (YOLO), Stable-Baselines3, vLLM, llama.cpp} \\
-     \textbf{Deep Learning}{: diffusion models, flow matching, transformers, attention mechanisms (RoPE, AdaLN-Zero), classifier-free guidance, object detection, reinforcement learning (PPO), vision-language models} \\
-     \textbf{LLMs \& Agents}{: LangChain, LangGraph, CrewAI, Google Agent Development Kit (ADK), Google Gen AI SDK, prompt engineering, structured output extraction, function calling, agentic workflows (planning, memory, tool use), LLM evaluation} \\
-     \textbf{Retrieval-Augmented Generation (RAG)}{: EmbeddingGemma embeddings, pgvector, ChromaDB, similarity search} \\
-     \textbf{Cloud \& Data}{: AWS (S3, EC2, Lambda, SageMaker, Redshift, EMR, ECS/ECR, IAM, CloudWatch), Google Cloud (BigQuery, Dataproc, Dataflow, Pub/Sub, Cloud Storage, Vertex AI), Apache Spark (managed on EMR and Dataproc), Modal, exploratory data analysis, data cleaning and visualization} \\
-     \textbf{AI Developer Tools}{: Claude Code, Gemini Antigravity, Gemini API} \\
-     \textbf{Simulation \& Robotics}{: MuJoCo, Gymnasium, OpenCV, Raspberry Pi, embedded/edge inference} \\
-     \textbf{Backend \& Infrastructure}{: FastAPI, Django, Flask, Weights \& Biases, Hydra, Git, Linux, NumPy, pandas}
+     \textbf{Deep Learning}{: flow/diffusion models, transformers, YOLO, generation, inpainting, detection, visual question answering (VLM), reinforcement learning (PPO)} \\
+     \textbf{Generative AI}{: LangChain, LangGraph, CrewAI, Google Agent Development Kit (ADK), Google Gen AI SDK, retrieval-augmented generation (RAG), EmbeddingGemma embeddings, pgvector, ChromaDB, agentic workflows (planning, memory, tool use), LLM evaluation} \\
+     \textbf{Cloud \& Data}{: AWS (S3, EC2, Lambda, SageMaker, Redshift, EMR, ECS/ECR, IAM, CloudWatch), Google Cloud (BigQuery, Managed Service for Apache Spark / Dataproc, Dataflow, Pub/Sub, Cloud Storage, Vertex AI), Apache Spark, Modal} \\
+     \textbf{AI Developer Tools}{: Claude Code, GitHub Copilot, Gemini Antigravity, Gemini API} \\
+     \textbf{Model Deployment}{: ONNX, NCNN, INT8 quantization, embedded/edge inference} \\
+     \textbf{Simulation \& Robotics}{: MuJoCo, Gymnasium, OpenCV, Raspberry Pi} \\
+     \textbf{Backend \& Infrastructure}{: Docker, Kubernetes (minikube), FastAPI, Django, Flask, Weights \& Biases, Hydra, Git, Linux, NumPy, pandas}
     }}
  \end{itemize}
 
@@ -166,7 +176,7 @@
       \resumeProjectHeading
           {\textbf{RoPE-DiT: Diffusion Transformer with 2D RoPE}}{\href{https://github.com/divyanshuklai/Custom2DRoPEDiT}{\uline{github.com/divyanshuklai/Custom2DRoPEDiT}}}
           \resumeItemListStart
-            \resumeItem{Wrote a $\sim$5M-parameter Diffusion Transformer from scratch in PyTorch: patchifier, timestep and class-label embedders, AdaLN-Zero conditioning, and a custom multi-head attention module.}
+            \resumeItem{Developed a 5M-parameter Diffusion Transformer from scratch in PyTorch: patchifier, timestep and class-label embedders, AdaLN-Zero conditioning, and a custom multi-head attention module.}
             \resumeItem{Built a 2D rotary positional embedding that rotates queries and keys by each patch's height and width coordinates, splitting the head dimension into row and column halves so attention sees relative 2D distance.}
             \resumeItem{Trained on CIFAR-10 with a rectified flow objective and sampled with a hand-written Euler solver and classifier-free guidance.}
           \resumeItemListEnd
