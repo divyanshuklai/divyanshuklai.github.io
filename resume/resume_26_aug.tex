@@ -36,11 +36,15 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.35in}
+% Text block is 7.8in x 10.45in on letter: 0.35in side margins, 0.35in top,
+% 0.2in bottom. Tightened from 0.5in/0.15in to fit the skills and project
+% detail without cutting content. Do not push further -- 0.2in bottom is
+% already inside some printers' unprintable region.
+\addtolength{\oddsidemargin}{-0.65in}
+\addtolength{\evensidemargin}{-0.65in}
+\addtolength{\textwidth}{1.3in}
+\addtolength{\topmargin}{-0.65in}
+\addtolength{\textheight}{1.45in}
 
 \urlstyle{same}
 
@@ -50,15 +54,15 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \vspace{-7pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
 
 % Ensure that generated pdf is machine readable / ATS parsable
 \pdfgentounicode=1
 
 \newcommand{\graddate}{Expected 2027}
 
-\newcommand{\introle}{ML Engineer Intern}
+\newcommand{\introle}{Machine Learning Intern}
 \newcommand{\intdates}{2026 -- Present}
 
 %-------------------------
@@ -89,9 +93,9 @@
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-6pt}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=-1.2pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-8pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=-2.2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,10 +150,12 @@
      \textbf{Languages}{: Python, C++, CUDA} \\
      \textbf{ML Frameworks}{: PyTorch, PyTorch Lightning, Hugging Face Transformers, TRL, Ultralytics (YOLO), Stable-Baselines3, vLLM} \\
      \textbf{Deep Learning}{: diffusion models, flow matching, transformers, attention mechanisms (RoPE, AdaLN-Zero), classifier-free guidance, object detection, reinforcement learning (PPO), vision-language models} \\
-     \textbf{LLMs, Agents \& RAG}{: prompt engineering, structured output extraction, function calling, agentic workflows (planning, memory, tool use), LLM evaluation, EmbeddingGemma embeddings, pgvector, ChromaDB} \\
+     \textbf{LLMs \& Agents}{: prompt engineering, structured output extraction, function calling, agentic workflows (planning, memory, tool use), LLM evaluation} \\
+     \textbf{Retrieval-Augmented Generation (RAG)}{: EmbeddingGemma embeddings, pgvector, ChromaDB, similarity search} \\
+     \textbf{Cloud}{: AWS (S3, EC2, Lambda, SageMaker, ECS/ECR, IAM, CloudWatch), Google Cloud (BigQuery, Dataflow, Pub/Sub, Cloud Storage, Vertex AI), Modal} \\
      \textbf{AI Developer Tools}{: Claude Code, Gemini Antigravity, Gemini API} \\
      \textbf{Simulation \& Robotics}{: MuJoCo, Gymnasium, OpenCV, Raspberry Pi, embedded/edge inference} \\
-     \textbf{Backend \& Infrastructure}{: FastAPI, Django, Flask, Modal, Weights \& Biases, Hydra, Git, Linux, NumPy, pandas}
+     \textbf{Backend \& Infrastructure}{: FastAPI, Django, Flask, Weights \& Biases, Hydra, Git, Linux, NumPy, pandas}
     }}
  \end{itemize}
 
@@ -168,7 +174,7 @@
       \resumeProjectHeading
           {\textbf{Zero-Shot ICE RMA: Quadruped Locomotion RL}}{\href{https://github.com/divyanshuklai/zero-shot-ice-rma}{\uline{github.com/divyanshuklai/zero-shot-ice-rma}}}
           \resumeItemListStart
-            \resumeItem{Built a MuJoCo environment for the Unitree Go1 quadruped with 30-dim proprioceptive observations, 12-dim joint-position actions, fractal terrain, and the Rapid Motor Adaptation bioenergetics reward.}
+            \resumeItem{Built a MuJoCo environment for the Unitree Go1 quadruped with 30-dim proprioceptive observations, 12-dim joint-position actions, fractal terrain, and the Rapid Motor Adaptation bioenergetics reward with curriculum-scheduled penalties.}
             \resumeItem{Debugged a PPO baseline that ran 42M steps without learning a gait, tracing the exploding value loss to unnormalized observations and penalty dominance.}
           \resumeItemListEnd
 
@@ -176,7 +182,7 @@
           {\textbf{Fashion Search: Conversational Product Discovery}}{\href{https://github.com/divyanshuklai/fashion_search}{\uline{github.com/divyanshuklai/fashion\_search}}}
           \resumeItemListStart
             \resumeItem{Built a FastAPI chat app answering natural-language product queries across 10 Indian e-commerce stores with Tavily search, Gemini 2.5 Flash extraction, and BeautifulSoup scraping.}
-            \resumeItem{Wrote a priority-based image and price extractor that falls back from JSON-LD product schema to Open Graph tags to keyword-matched image tags.}
+            \resumeItem{Wrote a priority-based image and price extractor that tries JSON-LD product schema, then Open Graph tags, then keyword-matched image tags, as the baseline for an agentic version with planning, memory, and tool use.}
           \resumeItemListEnd
 
     \resumeSubHeadingListEnd
