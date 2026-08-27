@@ -17,6 +17,11 @@ last version with source is `resume/archive/resume_26_aug.tex`. Superseded
 versions go in `resume/archive/` rather than being deleted, and the seven HTML
 pages that link the PDF all need updating when the filename changes.
 
+`js/main.js` renames the file at download time, so what a visitor saves is
+`divyansh_shukla_resume_<today>.pdf` regardless of what the PDF is called in the
+repo. It targets any `a[download][href$=".pdf"]`, so renaming the PDF does not
+break it.
+
 Build with `pdflatex <name>.tex` (run from `resume/`). Build artifacts
 (`.aux`, `.log`, `.out`) are gitignored.
 
