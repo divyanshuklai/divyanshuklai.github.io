@@ -14,13 +14,19 @@ Personal portfolio site (static HTML/CSS/JS) plus the LaTeX source for my resume
 Source lives in `resume/`. The live PDF is `resume/resume_2_26_aug.pdf`, but its
 `.tex` was never checked in, so there is no source to rebuild it from here. The
 last version with source is `resume/archive/resume_26_aug.tex`. Superseded
-versions go in `resume/archive/` rather than being deleted, and the seven HTML
-pages that link the PDF all need updating when the filename changes.
+versions go in `resume/archive/` rather than being deleted. Only `resume.html`
+links the PDF now (a download link and an open-in-tab link), so a rename touches
+that one file. Every other page's footer points at `resume.html`.
 
 `js/main.js` renames the file at download time, so what a visitor saves is
 `divyansh_shukla_resume_<today>.pdf` regardless of what the PDF is called in the
 repo. It targets any `a[download][href$=".pdf"]`, so renaming the PDF does not
 break it.
+
+**`resume.html` contains a hand-written HTML copy of the resume** so it reads
+properly on a phone, where an embedded PDF does not. It is a transcription, not
+a render: change the PDF and you must edit that markup to match, or the page and
+the download drift apart.
 
 Build with `pdflatex <name>.tex` (run from `resume/`). Build artifacts
 (`.aux`, `.log`, `.out`) are gitignored.
