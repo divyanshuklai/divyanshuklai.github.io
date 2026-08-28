@@ -15,18 +15,27 @@ Source lives in `resume/`. The live PDF is `resume/resume_2_26_aug.pdf`, but its
 `.tex` was never checked in, so there is no source to rebuild it from here. The
 last version with source is `resume/archive/resume_26_aug.tex`. Superseded
 versions go in `resume/archive/` rather than being deleted. Only `resume.html`
-links the PDF now (a download link and an open-in-tab link), so a rename touches
-that one file. Every other page's footer points at `resume.html`.
+names the PDF now, in three places: the viewer's `data-pdf-src` and the Download
+and Open PDF links. Every other page's footer points at `resume.html`.
 
 `js/main.js` renames the file at download time, so what a visitor saves is
 `divyansh_shukla_resume_<today>.pdf` regardless of what the PDF is called in the
 repo. It targets any `a[download][href$=".pdf"]`, so renaming the PDF does not
 break it.
 
-**`resume.html` contains a hand-written HTML copy of the resume** so it reads
-properly on a phone, where an embedded PDF does not. It is a transcription, not
-a render: change the PDF and you must edit that markup to match, or the page and
-the download drift apart.
+`resume.html` renders the PDF itself with pdf.js, vendored at
+`js/vendor/pdfjs/` (version in `VERSION`) so the site pulls nothing from a CDN
+at runtime. `js/resume-viewer.js` draws page 1 to a canvas, fit to width, with
+pdf.js's text layer over the top so the text stays selectable and findable.
+Nothing has to be kept in sync with the PDF: change the PDF and the page follows.
+
+Two things there are load-bearing and easy to break:
+
+- The canvas bitmap is sized in **device** pixels and the element in CSS pixels.
+  Size it only with CSS and every rendered PDF goes blurry on a retina screen.
+- `main` needs `min-width: 0`. A flex item is sized by its content by default,
+  so without it a zoomed-in canvas widens the whole column instead of scrolling
+  inside the viewer.
 
 Build with `pdflatex <name>.tex` (run from `resume/`). Build artifacts
 (`.aux`, `.log`, `.out`) are gitignored.
