@@ -11,12 +11,37 @@ Personal portfolio site (static HTML/CSS/JS) plus the LaTeX source for my resume
 
 ## Resume
 
-Source lives in `resume/`. The live PDF is `resume/resume_2_26_aug.pdf`, built
-from `resume/resume_2_26_aug.tex`. That `.tex` went missing for a while and was
-recovered on 2026-08-29; it is checked in now. Superseded
-versions go in `resume/archive/` rather than being deleted. Only `resume.html`
-names the PDF now, in three places: the viewer's `data-pdf-src` and the Download
-and Open PDF links. Every other page's footer points at `resume.html`.
+I track exactly one current resume. `resume/` holds it and nothing else; every
+other version lives in `resume/archive/`.
+
+The live PDF is `resume/resume_2_26_aug.pdf`, built from
+`resume/resume_2_26_aug.tex`. That `.tex` went missing for a while and was
+recovered on 2026-08-29; it is checked in now.
+
+### Naming
+
+When I make major changes I start a new file named
+`resume_<iter>_<YY>_<mmm>.pdf`, alongside its `.tex`:
+
+- `iter` is the nth resume I have made that month, counting from 1
+- `YY` is the numeric year, so 26 for 2026
+- `mmm` is the month code: `jan feb mar apr may june july aug sept oct nov dec`
+
+So `resume_2_26_aug` is the second resume I made in August 2026. Small edits do
+not earn a new file. I rebuild the current one in place.
+
+### When I cut a new resume
+
+1. Build the new `.pdf` and `.tex` in `resume/`.
+2. Move the previous `.pdf` and `.tex` into `resume/archive/`.
+3. Update the four references in `resume.html`: the viewer's `data-pdf-src`, the
+   Download link, the Open PDF link, and the noscript fallback link. Every other
+   page's footer points at `resume.html`, so nothing else needs touching.
+
+Specialized one-off resumes, built for a single company or role, get a
+descriptive name instead of the iteration format (`resume_tcs_prime.tex`). They
+go straight to `resume/archive/` once they have been used. They never become the
+current resume.
 
 `js/main.js` renames the file at download time, so what a visitor saves is
 `divyansh_shukla_resume_<today>.pdf` regardless of what the PDF is called in the
