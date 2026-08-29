@@ -1,0 +1,105 @@
+\documentclass[a4paper,9pt]{extarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\titleformat{\section}{\normalsize\bfseries}{}{0em}{}[\vspace{-0.6em}\rule{\textwidth}{0.6pt}]
+\titlespacing{\section}{0pt}{6pt}{3pt}
+
+\setlist[itemize]{leftmargin=12pt, topsep=1pt, itemsep=0.5pt, parsep=0pt, label=$\bullet$}
+\newcommand{\sep}{\ $\vert$\ }
+
+\begin{document}
+
+%---------- HEADER ----------
+\begin{center}
+{\LARGE \textbf{Divyansh Shukla}}\\[3pt]
++91 78279 10144 \sep \href{mailto:divyanshmohanshukla@hotmail.com}{divyanshmohanshukla@hotmail.com}\\[2pt]
+\href{https://github.com/divyanshuklai}{github.com/divyanshuklai} \sep
+\href{https://linkedin.com/in/divyansh-shukla-ai}{linkedin.com/in/divyansh-shukla-ai} \sep
+\href{https://divyanshuklai.github.io}{divyanshuklai.github.io}
+\end{center}
+
+%---------- EDUCATION ----------
+\section*{Education}
+\textbf{B.Tech, Computer Science and Engineering (AI and ML)} --- VIT-AP University, Amaravati\\
+2023 -- 2027 \sep CGPA 9.03 / 10\\[3pt]
+\textbf{CBSE} --- DAV Public School, Sahibabad\\
+XII (2022) -- 91\% \sep X (2020) -- 95.6\%
+
+%---------- EXPERIENCE ----------
+\section*{Experience}
+\textbf{Machine Learning Intern} --- Power Pulse India, Ghaziabad \sep 2026 -- Present\\
+\textit{Thermal perception for advanced driver assistance systems}
+\begin{itemize}
+  \item Trained a YOLOv8n thermal object detector on FLIR ADAS v2 across six road-safety classes, taking mAP50-95 from 0.360 to 0.420 and cutting missed pedestrians by 26\%, from 1,352 down to 999.
+  \item Ran a six-experiment sweep over input resolution and architecture. Dropped a P2 detection head that scored below a plain 640px model while costing 1.51x the compute and 4x the detection candidates.
+  \item Audited per-class crops and COCO size buckets to locate the accuracy ceiling. 82\% of pedestrian labels sit under 32x32 px, and the weak truck class turned out to be measuring annotation disagreement rather than model error, with identical delivery vans labelled truck, car and bus across the dataset.
+  \item Cut inference compute by 29\% at equal accuracy by moving to an NMS-free YOLO26n once the deployment target changed to a 3 TOPS ARM NPU.
+\end{itemize}
+
+%---------- PROJECTS ----------
+\section*{Projects}
+
+\textbf{Fashion Search: Conversational Product Discovery} \sep \textit{Python, FastAPI, Gemini, ChromaDB, Tavily}
+\begin{itemize}
+  \item Built a FastAPI chat application that answers natural-language shopping queries across 10 Indian e-commerce stores, using Tavily search, Gemini 2.5 Flash extraction and BeautifulSoup scraping.
+  \item Assembles complete outfits instead of returning single items, and lets the user refine them across a multi-turn conversation, with the candidate products browsable in a carousel.
+  \item Wrote the agent loop by hand on the Google Gen AI SDK without a framework. A planner step decides whether to search or ask a clarifying question, conversation history acts as memory, and Gemini function calls are dispatched manually against a declared search tool.
+\end{itemize}
+\vspace{3pt}
+
+\textbf{Smart Waste Segregator} \sep \textit{PyTorch, ONNX, TorchScript, NCNN, Raspberry Pi}
+\begin{itemize}
+  \item Built a smart bin that sorts waste into four categories. Trained a MobileNetV3-Small to 91.63\% validation accuracy and exported it to ONNX at opset 11, checking output parity against PyTorch before putting it on the device.
+  \item Replaced continuous video processing with a LIDAR trigger to keep the Raspberry Pi from overheating, drove a dual-flap segregation mechanism with MG995 servos, and held end-to-end latency under 3 seconds.
+  \item Traced a reported 2.75\% test accuracy to a label-mapping bug across two different class taxonomies rather than to model error. Also exported YOLO11n to TorchScript and NCNN for constrained hardware.
+\end{itemize}
+\vspace{3pt}
+
+\textbf{RoPE-DiT: Diffusion Transformer with 2D Rotary Embeddings} \sep \textit{PyTorch}
+\begin{itemize}
+  \item Wrote a 5M-parameter Diffusion Transformer from scratch: patchifier, timestep and class-label embedders, AdaLN-Zero conditioning and custom multi-head attention. Trained on CIFAR-10 with a rectified flow objective.
+  \item Added a 2D rotary positional embedding that rotates queries and keys by each patch's row and column coordinate, so attention sees relative 2D distance instead of a flattened index.
+\end{itemize}
+\vspace{3pt}
+
+\textbf{NagarKranti: Citizen Grievance Platform} \sep \textit{Django, PostgreSQL, PostGIS}
+\begin{itemize}
+  \item Built a Django platform where citizens report civic issues and municipal authorities track and resolve them, backed by PostgreSQL with PostGIS for geospatial queries and a custom user model.
+\end{itemize}
+\vspace{3pt}
+
+\textbf{POSIX Shell in C++} \sep \textit{C++, POSIX process APIs}
+\begin{itemize}
+  \item Wrote a working Unix shell from scratch: tokenizer, builtin commands, PATH resolution, process spawning and output redirection.
+\end{itemize}
+
+%---------- SKILLS ----------
+\section*{Technical Skills}
+\textbf{Languages:} Python, C++, CUDA C++, SQL\\
+\textbf{Core CS:} Data Structures and Algorithms, DBMS, Operating Systems, Computer Networks, OOP, SDLC and Agile\\
+\textbf{ML and Deep Learning:} PyTorch, PyTorch Lightning, Hugging Face Transformers, Ultralytics YOLO, Stable-Baselines3, Gymnasium, MuJoCo, OpenCV, NumPy, pandas\\
+\textbf{Backend and Data:} FastAPI, Flask, Django, REST APIs, PostgreSQL, PostGIS, SQLAlchemy, SQLite\\
+\textbf{Deployment and Tooling:} ONNX, TorchScript, NCNN, edge inference, Docker, Kubernetes (basics), AWS (EC2, S3, Lambda, IAM, RDS, VPC), Modal, Weights and Biases, Git, Linux, pytest
+
+%---------- CERTIFICATIONS ----------
+\section*{Certifications and Achievements}
+\begin{itemize}
+  \item \textbf{Deep Learning for Computer Vision}, NPTEL / IIT Hyderabad. Elite + Topper, top 1\% of 463 candidates.
+  \item \textbf{Applied Accelerated Artificial Intelligence}, NPTEL / IIT Guwahati and KLE Tech. Elite + Topper, top 2\% of 591 candidates.
+  \item \textbf{Google Cloud Data Analytics Certificate}: BigQuery, Dataflow, Apache Spark, Looker Studio. Deep Learning Specialization (5 courses), DeepLearning.ai on Coursera. AWS Certified Cloud Practitioner and AWS Academy Cloud Architecting.
+  \item Won the intra-campus round of the Smart India Hackathon at VIT-AP, 2024, in a team of five.
+\end{itemize}
+
+\end{document}

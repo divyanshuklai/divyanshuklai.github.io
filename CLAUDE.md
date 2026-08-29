@@ -11,9 +11,9 @@ Personal portfolio site (static HTML/CSS/JS) plus the LaTeX source for my resume
 
 ## Resume
 
-Source lives in `resume/`. The live PDF is `resume/resume_2_26_aug.pdf`, but its
-`.tex` was never checked in, so there is no source to rebuild it from here. The
-last version with source is `resume/archive/resume_26_aug.tex`. Superseded
+Source lives in `resume/`. The live PDF is `resume/resume_2_26_aug.pdf`, built
+from `resume/resume_2_26_aug.tex`. That `.tex` went missing for a while and was
+recovered on 2026-08-29; it is checked in now. Superseded
 versions go in `resume/archive/` rather than being deleted. Only `resume.html`
 names the PDF now, in three places: the viewer's `data-pdf-src` and the Download
 and Open PDF links. Every other page's footer points at `resume.html`.
