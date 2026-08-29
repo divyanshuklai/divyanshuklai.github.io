@@ -314,6 +314,15 @@ main {
     }
 }
 
+/* Inline filenames and identifiers in project writeups. */
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    background-color: #f0f0f0;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+}
+
 .projects-container {
     gap: 1rem;
     scroll-snap-type: x proximity;
