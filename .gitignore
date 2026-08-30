@@ -6,3 +6,7 @@
 *.fdb_latexmk
 *.synctex.gz
 *.toc
+
+# Assistant context
+CLAUDE.md
+
