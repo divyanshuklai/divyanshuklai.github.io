@@ -14,7 +14,7 @@
 \setlength{\parskip}{0pt}
 
 \titleformat{\section}{\normalsize\bfseries}{}{0em}{}[\vspace{-0.6em}\rule{\textwidth}{0.6pt}]
-\titlespacing{\section}{0pt}{6pt}{3pt}
+\titlespacing{\section}{0pt}{5pt}{2pt}
 
 \setlist[itemize]{leftmargin=12pt, topsep=1pt, itemsep=0.5pt, parsep=0pt, label=$\bullet$}
 \newcommand{\sep}{\ $\vert$\ }
@@ -57,28 +57,28 @@ XII (2022) -- 91\% \sep X (2020) -- 95.6\%
   \item Assembles complete outfits instead of returning single items, and lets the user refine them across a multi-turn conversation, with the candidate products browsable in a carousel.
   \item Wrote the agent loop by hand on the Google Gen AI SDK without a framework. A planner step decides whether to search or ask a clarifying question, conversation history acts as memory, and Gemini function calls are dispatched manually against a declared search tool.
 \end{itemize}
-\vspace{3pt}
+\vspace{2pt}
 
-\textbf{Smart Waste Segregator} \sep \textit{PyTorch, ONNX, TorchScript, NCNN, Raspberry Pi}
+\textbf{Smart Waste Segregator} \sep \textit{PyTorch, ONNX, onnxruntime, Raspberry Pi, LIDAR}
 \begin{itemize}
-  \item Built a smart bin that sorts waste into four categories. Trained a MobileNetV3-Small to 91.63\% validation accuracy and exported it to ONNX at opset 11, checking output parity against PyTorch before putting it on the device.
-  \item Replaced continuous video processing with a LIDAR trigger to keep the Raspberry Pi from overheating, drove a dual-flap segregation mechanism with MG995 servos, and held end-to-end latency under 3 seconds.
-  \item Traced a reported 2.75\% test accuracy to a label-mapping bug across two different class taxonomies rather than to model error. Also exported YOLO11n to TorchScript and NCNN for constrained hardware.
+  \item Built a Raspberry Pi smart bin that sorts waste into four compartments with a dual-flap servo mechanism. Trained a MobileNetV3-Small to 91.63\% validation accuracy, exported it to ONNX at opset 11 with output parity checked against PyTorch, and held trigger-to-actuation under 3 seconds.
+  \item Showed a reported 2.75\% test accuracy was a broken harness, not a broken model: six-class YOLO labels read against a four-class head silently dropped 860 of 1,042 images and mislabelled the rest. Recovered the labels from the filenames and re-scored back in line with validation.
+  \item Root-caused the real-world misclassification as distribution mismatch, centred catalogue photos in training against a fixed overhead camera on crumpled trash, and fixed thermal throttling by replacing always-on video decoding with a LIDAR trigger.
 \end{itemize}
-\vspace{3pt}
+\vspace{2pt}
 
 \textbf{RoPE-DiT: Diffusion Transformer with 2D Rotary Embeddings} \sep \textit{PyTorch}
 \begin{itemize}
   \item Wrote a 5M-parameter Diffusion Transformer from scratch: patchifier, timestep and class-label embedders, AdaLN-Zero conditioning and custom multi-head attention. Trained on CIFAR-10 with a rectified flow objective.
   \item Added a 2D rotary positional embedding that rotates queries and keys by each patch's row and column coordinate, so attention sees relative 2D distance instead of a flattened index.
 \end{itemize}
-\vspace{3pt}
+\vspace{2pt}
 
 \textbf{NagarKranti: Citizen Grievance Platform} \sep \textit{Django, PostgreSQL, PostGIS}
 \begin{itemize}
   \item Built a Django platform where citizens report civic issues and municipal authorities track and resolve them, backed by PostgreSQL with PostGIS for geospatial queries and a custom user model.
 \end{itemize}
-\vspace{3pt}
+\vspace{2pt}
 
 \textbf{POSIX Shell in C++} \sep \textit{C++, POSIX process APIs}
 \begin{itemize}
@@ -91,14 +91,14 @@ XII (2022) -- 91\% \sep X (2020) -- 95.6\%
 \textbf{Core CS:} Data Structures and Algorithms, DBMS, Operating Systems, Computer Networks, OOP, SDLC and Agile\\
 \textbf{ML and Deep Learning:} PyTorch, PyTorch Lightning, Hugging Face Transformers, Ultralytics YOLO, Stable-Baselines3, Gymnasium, MuJoCo, OpenCV, NumPy, pandas\\
 \textbf{Backend and Data:} FastAPI, Flask, Django, REST APIs, PostgreSQL, PostGIS, SQLAlchemy, SQLite\\
-\textbf{Deployment and Tooling:} ONNX, TorchScript, NCNN, edge inference, Docker, Kubernetes (basics), AWS (EC2, S3, Lambda, IAM, RDS, VPC), Modal, Weights and Biases, Git, Linux, pytest
+\textbf{Deployment and Tooling:} ONNX, TorchScript, NCNN, edge inference, Docker, Kubernetes (basics), AWS (EC2, S3, Lambda, IAM, RDS, VPC), Google Cloud (BigQuery, Dataflow, Looker Studio), Modal, Weights and Biases, Git, Linux, pytest
 
 %---------- CERTIFICATIONS ----------
 \section*{Certifications and Achievements}
 \begin{itemize}
   \item \textbf{Deep Learning for Computer Vision}, NPTEL / IIT Hyderabad. Elite + Topper, top 1\% of 463 candidates.
   \item \textbf{Applied Accelerated Artificial Intelligence}, NPTEL / IIT Guwahati and KLE Tech. Elite + Topper, top 2\% of 591 candidates.
-  \item \textbf{Google Cloud Data Analytics Certificate}: BigQuery, Dataflow, Apache Spark, Looker Studio. Deep Learning Specialization (5 courses), DeepLearning.ai on Coursera. AWS Certified Cloud Practitioner and AWS Academy Cloud Architecting.
+  \item \textbf{Google Cloud Data Analytics Certificate} (5 courses) and \textbf{Introduction to Data Engineering on Google Cloud}, 2026. Deep Learning Specialization, DeepLearning.AI on Coursera. AWS Certified Cloud Practitioner and AWS Academy Cloud Architecting.
   \item Won the intra-campus round of the Smart India Hackathon at VIT-AP, 2024, in a team of five.
 \end{itemize}
 
